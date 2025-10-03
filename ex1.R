@@ -32,10 +32,10 @@ titanicJoin <- titanic %>% inner_join(titanic_place, by = 'id')
 #--- 6.
 titanicJoin[is.na(titanicJoin$Age),] %>% count()
 
-titanic_svm <- titanicJoin %>% filter(!is.na(titanicJoin$Age))
+titanic_svm <- titanicJoin %>% filter(!is.na(.$Age))
 
 #--- 7.
-titanic_appur <- titanicJoin %>% filter(!if_any(names(titanicJoin), is.na))
+titanic_appur <- titanicJoin %>% filter(!if_any(names(.), is.na))
 titanic_appur <- na.omit(titanicJoin)
 
 #--- 8.
